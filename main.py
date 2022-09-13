@@ -1,5 +1,3 @@
-import numpy as np
-
 from readfile import read_train_data
 from crossvalidate import k_fold_cross_validate
 

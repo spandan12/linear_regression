@@ -1,4 +1,3 @@
-import math
 import numpy as np
 from leastsquare import calculate_weight, calculate_error
 
