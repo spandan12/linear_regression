@@ -1,5 +1,6 @@
 import numpy as np
-from leastsquare import calculate_weight, calculate_error
+
+from leastsquare import calc_predictions, calculate_error, calculate_weight
 
 
 def k_fold_cross_validate(basis_function, output_labels, K):
@@ -10,7 +11,7 @@ def k_fold_cross_validate(basis_function, output_labels, K):
     test_error = np.zeros(K)
     train_error = np.zeros(K)
 
-    for i in range(0, K):
+    for i in range(K):
         lower_bound = int(i * test_n)
         upper_bound = int(lower_bound + test_n)
         test_input_data = basis_function[:, lower_bound:upper_bound]
@@ -24,8 +25,11 @@ def k_fold_cross_validate(basis_function, output_labels, K):
         )
 
         weight = calculate_weight(train_input_data, train_output_data)
-        train_error[i] = calculate_error(train_input_data, train_output_data, weight)
-        test_error[i] = calculate_error(test_input_data, test_output_data, weight)
+        output_train_pred = calc_predictions(train_input_data, weight)
+        output_test_pred = calc_predictions(test_input_data, weight)
+
+        train_error[i] = calculate_error(output_train_pred, train_output_data)
+        test_error[i] = calculate_error(output_test_pred, test_output_data)
 
     average_train_error = np.mean(train_error) / train_n
     average_test_error = np.mean(test_error) / test_n
