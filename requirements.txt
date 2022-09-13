@@ -1,5 +1,2 @@
-black
 numpy
 pandas
-isort
-flake8
