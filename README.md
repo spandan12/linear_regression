@@ -6,7 +6,7 @@
   - [Development Setup](#development-setup)
   - [Prerequisites](#-prerequisites)
   - [Initial Setup](#-initial-setup)
-  - [Initial Setup](#-initial-setup-1)
+  - [Running the project](#-running-the-project)
 
 ## Development Setup
 
@@ -15,6 +15,7 @@
 
 * [Python>=3.8](https://www.python.org/downloads/release/python-383/)
 * [Git](https://git-scm.com/downloads)
+* [Virtualenv](https://pypi.org/project/virtualenv/)
 
 ### Initial Setup
 ---------------------
@@ -32,19 +33,13 @@
     $ source venv/bin/activate
     ```
 
-    On Windows, activating is different.
-
-    ``` {.sourceCode .text}
-    > env\Scripts\activate
-    ```
-
--   Install Recovvo ETL Core in editable mode with development dependencies.
+-   Install dependecies 
 
     ``` {.sourceCode .text}
     $ pip install -r requirements.txt
     ```
 
-### Initial Setup
+### Running the project
 ---------------------
 -   Run the following command in your shell.
     ``` {.sourceCode .text}
