@@ -4,7 +4,7 @@ import numpy as np
 
 def read_file(file_path):
 
-    return pd.read_csv(file_path, sep=" ", header=None).dropna(axis="columns")
+    return pd.read_csv(file_path, sep="\s+", header=None)
 
 
 def get_input_and_labels(train_df):

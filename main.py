@@ -6,7 +6,7 @@ from crossvalidate import k_fold_cross_validate
 
 if __name__ == "__main__":
     train_input_data, train_label_data = read_train_data()
-    basis_function = np.transpose(train_input_data)
+    basis_function = train_input_data.T
     output_labels = train_label_data.reshape(-1, 1)
     K = 60
 

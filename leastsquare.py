@@ -4,16 +4,16 @@ import numpy as np
 def calculate_weight(basis_function, output_labels):
 
     # For MW = S
-    S = np.dot(basis_function, output_labels)
-    M = np.dot(basis_function, np.transpose(basis_function))
+    S = basis_function@output_labels
+    M = basis_function@(basis_function.T)
 
     # Solve linear equation
     return np.linalg.solve(M, S)
 
 
 def calculate_error(basis_function, output_labels, weight):
-    predicted_output = np.dot(np.transpose(weight), basis_function)
-    rms = np.sum((predicted_output - np.transpose(output_labels)) ** 2)
+    predicted_output = (weight.T)@basis_function
+    rms = np.sum((predicted_output - output_labels.T) ** 2)
 
     return rms
 
