@@ -11,14 +11,14 @@ def get_input_and_labels(train_df):
 
 
 def read_train_data():
-    df = read_file("./traindata.txt")
+    df = read_file("./data/traindata.txt")
 
     return get_input_and_labels(df)
 
 
 def read_test_data():
 
-    return read_file("./testinputs.txt").to_numpy()
+    return read_file("./data/testinputs.txt").to_numpy()
 
 
 if __name__ == "__main__":
